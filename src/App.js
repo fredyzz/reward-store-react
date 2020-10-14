@@ -6,19 +6,23 @@ import ProductList from './components/ProductList'
 import Sidebar from './components/Sidebar'
 import { AppContext } from './context/AppContext'
 import { getProducts } from './data/products'
+import { getUser } from './data/user'
 
 function App() {
 	const {
 		loading,
 		setLoading,
-		user,
 		section,
 		products,
-		setProducts
+		setProducts,
+		user,
+		setUser
 	} = useContext(AppContext)
 
 	useEffect(() => {
 		const getInitialData = async () => {
+			const user = await getUser()
+			setUser(user)
 			const data = await getProducts()
 			setProducts(data)
 		}
@@ -26,13 +30,13 @@ function App() {
 		setLoading(true)
 		getInitialData()
 		setLoading(false)
-	}, [setLoading, setProducts])
+	}, [setLoading, setProducts, setUser])
 
 	return (
 		<div className="container">
 			<div className="upbar">
 				<img src={require('./assets/images/logo.svg')} alt="logo" />
-				<div>{user.username}</div>
+				<div>{`Hello, ${user.name}!`}</div>
 			</div>
 			<div className="header">
 				<img src={require('./assets/images/header-x1.png')} alt="banner" />

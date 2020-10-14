@@ -7,7 +7,7 @@ export default function AppProvider({ children }) {
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState(null)
 	const [user, setUser] = useState({
-		username: 'Fredy'
+		username: 'user'
 	})
 	const [section, setSection] = useState('Electronics')
 	const [products, setProducts] = useState([])

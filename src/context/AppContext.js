@@ -11,6 +11,8 @@ export default function AppProvider({ children }) {
 	})
 	const [section, setSection] = useState('Electronics')
 	const [products, setProducts] = useState([])
+	const [filteredProducts, setFilteredProducts] = useState(null)
+	const [page, setPage] = useState(1)
 
 	return (
 		<AppContext.Provider
@@ -24,7 +26,11 @@ export default function AppProvider({ children }) {
 				section,
 				setSection,
 				products,
-				setProducts
+				setProducts,
+				filteredProducts,
+				setFilteredProducts,
+				page,
+				setPage
 			}}
 		>
 			{children}

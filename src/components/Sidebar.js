@@ -3,8 +3,7 @@ import { AppContext } from '../context/AppContext'
 import Avatar from '../assets/utils/Avatar'
 
 const Sidebar = () => {
-	const { loading, user, setUser } = useContext(AppContext)
-	console.log(user)
+	const { user } = useContext(AppContext)
 	return (
 		<div className="sidebar">
 			<Avatar
@@ -15,11 +14,17 @@ const Sidebar = () => {
 				// imageURL={'https://semantic-ui.com/images/avatar/small/steve.jpg'}
 			/>
 			<span className="name">{user.name}</span>
-			<div className="points">
-				<img src={require('../assets/images/coin.svg')} alt="" />
-				<p>{user.points}</p>
-			</div>
-			<button>Buy More</button>
+			{user.points && (
+				<>
+					<div className="points">
+						<img src={require('../assets/images/coin.svg')} alt="" />
+						<p>{user.points}</p>
+					</div>
+					<button>Buy More</button>
+				</>
+			)}
+
+			<div></div>
 		</div>
 	)
 }

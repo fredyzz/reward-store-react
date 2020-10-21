@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../context/AppContext'
 import Avatar from '../assets/utils/Avatar'
+import History from './History'
 
 const Sidebar = () => {
-	const { user } = useContext(AppContext)
+	const { user, history } = useContext(AppContext)
 	return (
 		<div className="sidebar">
 			<Avatar
@@ -22,6 +23,12 @@ const Sidebar = () => {
 					</div>
 					<button>Buy More</button>
 				</>
+			)}
+			{history && (
+				<>
+				<History history={history}/>
+				</>
+				
 			)}
 
 			<div></div>

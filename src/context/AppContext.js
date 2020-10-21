@@ -9,6 +9,7 @@ export default function AppProvider({ children }) {
 	const [user, setUser] = useState({
 		username: 'user'
 	})
+	const [history, setHistory] = useState(null)
 	const [section, setSection] = useState('Electronics')
 	const [products, setProducts] = useState([])
 	const [filteredProducts, setFilteredProducts] = useState(null)
@@ -30,7 +31,9 @@ export default function AppProvider({ children }) {
 				filteredProducts,
 				setFilteredProducts,
 				page,
-				setPage
+				setPage,
+				history,
+				setHistory
 			}}
 		>
 			{children}

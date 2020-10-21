@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react'
 import './App.css'
 import Filters from './components/Filters'
-import Footer from './components/Footer'
+import Pagination from './components/Pagination'
 import ProductList from './components/ProductList'
 import Sidebar from './components/Sidebar'
 import Loader from './assets/utils/Loader'
 import { AppContext } from './context/AppContext'
 import { getProducts } from './data/products'
-import { getUser } from './data/user'
+import { getUser, getUserHistory } from './data/user'
 import { PRODUCTS_BY_PAGE } from './data/config'
 
 function App() {
@@ -20,7 +20,8 @@ function App() {
 		setProducts,
 		user,
 		setUser,
-		page
+		page,
+		setHistory
 	} = useContext(AppContext)
 
 
@@ -30,12 +31,14 @@ function App() {
 			setUser(user)
 			const data = await getProducts()
 			setProducts(data)
+			const historyData = await getUserHistory()
+			setHistory(historyData.slice(historyData.length - 8, historyData.length).reverse())
 			setLoading(false)
 		}
 
 		setLoading(true)
 		getInitialData()
-	}, [setLoading, setProducts, setUser])
+	}, [setLoading, setProducts, setUser, setHistory])
 
 	return (
 		<div className="container">
@@ -56,7 +59,7 @@ function App() {
 						<div className="main">
 							<Filters />
 							<ProductList products={filteredProducts ? filteredProducts : products} productsByPage={PRODUCTS_BY_PAGE} page={page}/>
-							<Footer />
+							<Pagination />
 						</div>
 					</>
 				)}

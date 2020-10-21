@@ -28,10 +28,10 @@ body {
 }
 
 .container {
-	display: flexbox;
+	display: flex;
 	flex-direction: column;
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 }
 
 .upbar {
@@ -67,6 +67,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	margin-bottom: 0;
 }
 
 .filters {
@@ -330,11 +331,37 @@ body {
 
 /* ---------- /SIDEBAR ---------- */
 
+/* ---------- HISTORY ---------- */
+
+.history {
+	width: 80%;
+	margin-top: 30px;
+	padding: 10% 0;
+	text-align: center;
+	border-top: 1px solid #d9d9d9;
+}
+
+.historyItem {
+	margin-top: 12px;
+	padding: 5px;
+	box-sizing: border-box;
+	font-size: 12px;
+}
+.historyProductImg {
+	width: 40px;
+	border-radius: 20px;
+}
+.historyCoin {
+	width: 10px;
+}
+
+/* ---------- /HISTORY ---------- */
 /* ---------- FOOTER ---------- */
 .footer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
+	border: 1px solid red;
 }
 
 /* ---------- /FOOTER ---------- */

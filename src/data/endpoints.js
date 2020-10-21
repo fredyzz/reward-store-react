@@ -5,3 +5,4 @@ export const API_PRODUCTS_URL =
 	'https://coding-challenge-api.aerolab.co/products'
 
 export const API_USER_URL = 'https://coding-challenge-api.aerolab.co/user/me'
+export const API_USER_HISTORY_URL = 'https://coding-challenge-api.aerolab.co/user/history'

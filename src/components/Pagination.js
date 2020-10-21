@@ -27,7 +27,7 @@ const Pagination = () => {
 			<button onClick={previuosPage}>
 				<img src={require('../assets/images/left-arrow.svg')} alt="" />
 			</button>
-			<p>{`${firstProduct} to ${lastProduct}, of ${products.length}products`}</p>
+			<p>{`${firstProduct} to ${lastProduct}, of ${products.length} products`}</p>
 			<button onClick={nextPage}>
 				<img src={require('../assets/images/right-arrow.svg')} alt="" />
 			</button>

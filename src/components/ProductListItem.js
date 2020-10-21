@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { AppContext } from '../context/AppContext'
 
 const ProductListItem = ({ product }) => {
+	const {user} = useContext(AppContext)
+	const hasRequiredCoins = user.points >= product.cost ? true : false
+	const coinsLeft = product.cost - user.points
 	return (
 		<div key={product.id} className="productListItem">
 			<div className="cover">
@@ -8,14 +12,24 @@ const ProductListItem = ({ product }) => {
 					<span>{product.cost}</span>
 					<img src={require('../assets/images/coin.svg')} alt="" />
 				</div>
-
-				<button>Redeem now</button>
+				{hasRequiredCoins && <button>Redeem now</button>}
+				
 			</div>
 			<div className="back">
 				<img src={product.img.url} alt={product.name} />
+				
 				<hr />
 				<p>{product.category}</p>
 				<h4>{product.name}</h4>
+			</div>
+			<div >
+			{hasRequiredCoins 
+				? <img className='badge round' src={require('../assets/images/cart2.svg')} alt="cart"/>
+				: <div className='badge rectangle'>
+					<span>{`Coins left: ${coinsLeft}`}</span>
+					<img src={require('../assets/images/coin.svg')} alt="coin"/>
+				</div>
+				}
 			</div>
 		</div>
 	)

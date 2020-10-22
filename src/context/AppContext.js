@@ -14,6 +14,8 @@ export default function AppProvider({ children }) {
 	const [products, setProducts] = useState([])
 	const [filteredProducts, setFilteredProducts] = useState(null)
 	const [page, setPage] = useState(1)
+	const [showModal, setShowModal] = useState(false)
+	const [selectedProduct, setSelectedProduct] = useState(null)
 
 	return (
 		<AppContext.Provider
@@ -33,7 +35,11 @@ export default function AppProvider({ children }) {
 				page,
 				setPage,
 				history,
-				setHistory
+				setHistory,
+				showModal,
+				setShowModal,
+				selectedProduct,
+				setSelectedProduct
 			}}
 		>
 			{children}

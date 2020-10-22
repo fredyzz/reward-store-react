@@ -5,12 +5,17 @@ import Pagination from './components/Pagination'
 import ProductList from './components/ProductList'
 import Sidebar from './components/Sidebar'
 import Loader from './assets/utils/Loader'
+
+
 import { AppContext } from './context/AppContext'
 import { getProducts } from './data/products'
 import { getUser, getUserHistory } from './data/user'
 import { PRODUCTS_BY_PAGE } from './data/config'
 
 function App() {
+
+
+	  
 	const {
 		loading,
 		setLoading,
@@ -21,7 +26,8 @@ function App() {
 		user,
 		setUser,
 		page,
-		setHistory
+		setHistory,
+		showModal
 	} = useContext(AppContext)
 
 
@@ -41,10 +47,10 @@ function App() {
 	}, [setLoading, setProducts, setUser, setHistory])
 
 	return (
-		<div className="container">
+		<div className={showModal ? "modal-open container" : "container"}>
 			<div className="upbar">
 				<img src={require('./assets/images/logo.svg')} alt="logo" />
-				<div>{`Hello, ${user.name}!`}</div>
+				<span>{`Hello, ${user.name}!`}</span>
 			</div>
 			<div className="header">
 				<img src={require('./assets/images/header-x1.png')} alt="banner" />
@@ -64,6 +70,7 @@ function App() {
 					</>
 				)}
 			</div>
+			
 		</div>
 	)
 }

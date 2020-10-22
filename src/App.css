@@ -31,10 +31,11 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
-	height: 100%;
+	/* height: 100%; */
 }
 
 .upbar {
+	height: 40px;
 	padding: 16px 30px;
 	display: flex;
 	justify-content: space-between;
@@ -45,7 +46,10 @@ body {
 .upbar img {
 	width: 40px;
 }
-
+.upbar span {
+	margin-top: 12px;
+	margin-right: 12px;
+}
 .header {
 	width: 100%;
 }
@@ -171,7 +175,7 @@ body {
 	width: 240px;
 	height: 240px;
 	box-sizing: border-box;
-	z-index: 99999;
+	z-index: 6666;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -365,3 +369,52 @@ body {
 }
 
 /* ---------- /FOOTER ---------- */
+
+.modal-hidden {
+	visibility: hidden;
+}
+
+.modal-open {
+	overflow: hidden;
+	position: fixed;
+}
+
+.centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.modal-background {
+	background: rgba(54, 52, 52, 0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	transition: all 0.3s;
+	z-index: 9999999;
+}
+
+.modal-content {
+	visibility: visible;
+	height: 400px;
+	width: 300px;
+	background: rgb(143, 244, 208);
+	background: linear-gradient(
+		163deg,
+		rgba(143, 244, 208, 1) 33%,
+		rgba(103, 242, 102, 1) 60%,
+		rgba(143, 254, 209, 1) 100%
+	);
+	box-shadow: 4px 4px 16px -3px rgba(0, 0, 0, 0.8);
+	border-radius: 15px;
+	padding: 40px;
+}
+
+.cerrar {
+	text-decoration: underline;
+	padding: 10px;
+	cursor: pointer;
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const History = ({ history }) => {
-	console.log(history)
 	return (
 		<div className="history">
 			<h3>Last swaps</h3>

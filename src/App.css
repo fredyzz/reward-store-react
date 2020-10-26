@@ -387,13 +387,13 @@ body {
 }
 
 .modal-background {
-	background: rgba(54, 52, 52, 0.5);
+	background: rgba(26, 24, 24, 0.8);
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	transition: all 0.3s;
+	transition: all 1s;
 	z-index: 9999999;
 }
 
@@ -401,6 +401,13 @@ body {
 	visibility: visible;
 	height: 400px;
 	width: 300px;
+	background: #ffffff;
+	box-shadow: 4px 4px 16px -3px rgba(0, 0, 0, 0.8);
+	border-radius: 15px;
+	padding: 40px;
+}
+
+.success {
 	background: rgb(143, 244, 208);
 	background: linear-gradient(
 		163deg,
@@ -408,13 +415,77 @@ body {
 		rgba(103, 242, 102, 1) 60%,
 		rgba(143, 254, 209, 1) 100%
 	);
-	box-shadow: 4px 4px 16px -3px rgba(0, 0, 0, 0.8);
-	border-radius: 15px;
-	padding: 40px;
 }
 
-.cerrar {
-	text-decoration: underline;
-	padding: 10px;
+.cancel {
+	background: rgb(242, 49, 118);
+	background: linear-gradient(
+		163deg,
+		rgba(242, 49, 118, 1) 33%,
+		rgba(180, 21, 92, 1) 54%,
+		rgba(249, 0, 9, 1) 100%
+	);
+}
+
+.confirmSwap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.confirmSwap h4 {
+	font-size: 18px;
+}
+
+.confirmSwap span {
+	margin-top: 2px;
+	margin-bottom: 8px;
+	font-size: 16px;
+}
+
+.confirmSwap span img {
+	width: 14px;
+}
+
+.confirmSwap button {
+	margin-top: 20px;
+	padding: 6px;
+	font-size: 14px;
+	box-sizing: border-box;
+	border-radius: 21px;
+	outline: none;
+	border: none;
 	cursor: pointer;
+	color: #ffffff;
+}
+
+button.success {
+	width: 180px;
+	height: 40px;
+	font-size: 16px;
+	color: cadetblue;
+}
+
+button.cancel {
+	background: none;
+	color: rgb(242, 49, 118);
+	text-decoration: underline;
+}
+
+.modalClose {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: -15px;
+	margin-right: -15px;
+	margin-bottom: 25px;
+}
+.modalClose button {
+	background: #ff605c;
+	box-shadow: 2px 2px 8px -3px rgba(0, 0, 0, 0.8);
+	outline: none;
+	border: none;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
 }

@@ -16,6 +16,7 @@ export default function AppProvider({ children }) {
 	const [page, setPage] = useState(1)
 	const [showModal, setShowModal] = useState(false)
 	const [selectedProduct, setSelectedProduct] = useState(null)
+	const [modalType, setModalType] = useState(null)
 
 	return (
 		<AppContext.Provider
@@ -39,7 +40,9 @@ export default function AppProvider({ children }) {
 				showModal,
 				setShowModal,
 				selectedProduct,
-				setSelectedProduct
+				setSelectedProduct,
+				modalType,
+				setModalType
 			}}
 		>
 			{children}

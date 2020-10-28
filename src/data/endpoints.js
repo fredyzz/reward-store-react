@@ -4,5 +4,8 @@ export const TOKEN =
 export const API_PRODUCTS_URL =
 	'https://coding-challenge-api.aerolab.co/products'
 
+export const API_REDEEM_URL = 'https://coding-challenge-api.aerolab.co/redeem'
+
 export const API_USER_URL = 'https://coding-challenge-api.aerolab.co/user/me'
-export const API_USER_HISTORY_URL = 'https://coding-challenge-api.aerolab.co/user/history'
+export const API_USER_HISTORY_URL =
+	'https://coding-challenge-api.aerolab.co/user/history'

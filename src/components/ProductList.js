@@ -5,9 +5,7 @@ import Modal from '../assets/utils/Modal'
 import ConfirmSwap from './ConfirmSwap'
 
 const ProductList = ({ products, page, productsByPage }) => {
-	const { showModal, setShowModal, modalType, selectedProduct } = useContext(
-		AppContext
-	)
+	const { showModal, setShowModal, modalType } = useContext(AppContext)
 	const firstProductShowing = page * productsByPage - productsByPage
 	const lastProductShowing = page * productsByPage - 1
 
@@ -23,7 +21,7 @@ const ProductList = ({ products, page, productsByPage }) => {
 			</div>
 			{showModal && (
 				<Modal show={showModal} setShow={setShowModal} type={modalType}>
-					<ConfirmSwap selectedProduct={selectedProduct} />
+					<ConfirmSwap />
 				</Modal>
 			)}
 		</>

@@ -1,3 +1,5 @@
+/* ---------- GENERAL ---------- */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -38,8 +40,74 @@ body {
 	display: flex;
 	flex-direction: column;
 	width: 100vw;
-	/* height: 100%; */
 }
+
+.main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.success {
+	background: rgb(143, 244, 208);
+	background: linear-gradient(
+		163deg,
+		rgba(143, 244, 208, 1) 33%,
+		rgba(103, 242, 102, 1) 60%,
+		rgba(143, 254, 209, 1) 100%
+	);
+}
+
+.cancel {
+	background: rgb(242, 49, 118);
+	background: linear-gradient(
+		163deg,
+		rgba(242, 49, 118, 1) 33%,
+		rgba(180, 21, 92, 1) 54%,
+		rgba(249, 0, 9, 1) 100%
+	);
+}
+
+button.success {
+	width: 180px;
+	height: 40px;
+	font-size: 16px;
+	color: cadetblue;
+}
+
+button.close {
+	width: 180px;
+	height: 40px;
+	font-size: 16px;
+	color: cadetblue;
+}
+
+button.cancel {
+	background: none;
+	color: rgb(242, 49, 118);
+	text-decoration: underline;
+}
+
+button.disabled {
+	background: #d9d9d9;
+}
+button.left {
+	border-radius: 21px 0 0 21px;
+}
+
+button.right {
+	border-radius: 0 21px 21px 0;
+}
+
+/* ---------- UPBAR ---------- */
 
 .upbar {
 	height: 40px;
@@ -74,12 +142,7 @@ body {
 	color: white;
 }
 
-.main {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	margin-bottom: 0;
-}
+/* ---------- FILTERS ---------- */
 
 .filters {
 	margin: 0 20px;
@@ -122,6 +185,8 @@ body {
 	padding: 15px 10px;
 }
 
+/* ---------- PAGINATION ---------- */
+
 .pagination {
 	display: flex;
 	justify-content: center;
@@ -156,6 +221,8 @@ body {
 	margin-left: 16px;
 	padding: 15px 10px;
 }
+
+/* ---------- PRODUCTLIST ---------- */
 
 .productlist {
 	display: flex;
@@ -298,7 +365,6 @@ body {
 
 .sidebar {
 	min-width: 180px;
-	/* min-height: 500px; */
 	background: #ededed;
 	display: flex;
 	flex-direction: column;
@@ -340,8 +406,6 @@ body {
 	background-color: #0ad4fa;
 }
 
-/* ---------- /SIDEBAR ---------- */
-
 /* ---------- HISTORY ---------- */
 
 .history {
@@ -366,8 +430,8 @@ body {
 	width: 10px;
 }
 
-/* ---------- /HISTORY ---------- */
 /* ---------- FOOTER ---------- */
+
 .footer {
 	display: flex;
 	flex-direction: row;
@@ -375,7 +439,7 @@ body {
 	border: 1px solid red;
 }
 
-/* ---------- /FOOTER ---------- */
+/* ---------- MODAL ---------- */
 
 .modal-hidden {
 	visibility: hidden;
@@ -384,13 +448,6 @@ body {
 .modal-open {
 	overflow: hidden;
 	position: fixed;
-}
-
-.centered {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
 }
 
 .modal-background {
@@ -414,25 +471,25 @@ body {
 	padding: 40px;
 }
 
-.success {
-	background: rgb(143, 244, 208);
-	background: linear-gradient(
-		163deg,
-		rgba(143, 244, 208, 1) 33%,
-		rgba(103, 242, 102, 1) 60%,
-		rgba(143, 254, 209, 1) 100%
-	);
+.modalClose {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: -15px;
+	margin-right: -15px;
+	margin-bottom: 25px;
+}
+.modalClose button {
+	background: #ff605c;
+	box-shadow: 2px 2px 8px -3px rgba(0, 0, 0, 0.8);
+	outline: none;
+	border: none;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
 }
 
-.cancel {
-	background: rgb(242, 49, 118);
-	background: linear-gradient(
-		163deg,
-		rgba(242, 49, 118, 1) 33%,
-		rgba(180, 21, 92, 1) 54%,
-		rgba(249, 0, 9, 1) 100%
-	);
-}
+/* ---------- CONFIRM SWAP ---------- */
 
 .confirmSwap {
 	height: 100%;
@@ -479,43 +536,8 @@ body {
 	color: #ffffff;
 }
 
-button.success {
-	width: 180px;
-	height: 40px;
-	font-size: 16px;
-	color: cadetblue;
-}
+/* ---------- COIN SELECTOR ---------- */
 
-button.close {
-	width: 180px;
-	height: 40px;
-	font-size: 16px;
-	color: cadetblue;
-}
-
-button.cancel {
-	background: none;
-	color: rgb(242, 49, 118);
-	text-decoration: underline;
-}
-
-.modalClose {
-	display: flex;
-	justify-content: flex-end;
-	margin-top: -15px;
-	margin-right: -15px;
-	margin-bottom: 25px;
-}
-.modalClose button {
-	background: #ff605c;
-	box-shadow: 2px 2px 8px -3px rgba(0, 0, 0, 0.8);
-	outline: none;
-	border: none;
-	cursor: pointer;
-	width: 20px;
-	height: 20px;
-	border-radius: 10px;
-}
 .coin_big {
 	width: 120px;
 	margin-top: 30px;
@@ -534,10 +556,6 @@ button.cancel {
 	font-size: 40px;
 }
 
-button.disabled {
-	background: #d9d9d9;
-}
-
 .coinsSelector .number {
 	width: 120px;
 	height: 60px;
@@ -554,12 +572,4 @@ button.disabled {
 
 .coinsSelector img {
 	width: 18px;
-}
-
-button.left {
-	border-radius: 21px 0 0 21px;
-}
-
-button.right {
-	border-radius: 0 21px 21px 0;
 }

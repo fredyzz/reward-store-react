@@ -30,6 +30,8 @@ body {
 .flex-column {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .container {
@@ -466,6 +468,7 @@ body {
 
 .confirmSwap button {
 	margin-top: 20px;
+	margin-left: 0;
 	padding: 6px;
 	font-size: 14px;
 	box-sizing: border-box;
@@ -512,4 +515,51 @@ button.cancel {
 	width: 20px;
 	height: 20px;
 	border-radius: 10px;
+}
+.coin_big {
+	width: 120px;
+	margin-top: 30px;
+}
+
+.coinsSelector {
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.coinsSelector button {
+	margin-top: 0;
+	margin-left: 0;
+	height: 60px;
+	font-size: 40px;
+}
+
+button.disabled {
+	background: #d9d9d9;
+}
+
+.coinsSelector .number {
+	width: 120px;
+	height: 60px;
+	box-sizing: border-box;
+	border: 2px solid #0ad4fa;
+	text-align: center;
+	padding-top: 14px;
+}
+
+.coinsSelector .number span {
+	font-size: 24px;
+	margin-right: 5px;
+}
+
+.coinsSelector img {
+	width: 18px;
+}
+
+button.left {
+	border-radius: 21px 0 0 21px;
+}
+
+button.right {
+	border-radius: 0 21px 21px 0;
 }

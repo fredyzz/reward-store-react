@@ -2,9 +2,22 @@ import React, { useContext } from 'react'
 import { AppContext } from '../context/AppContext'
 import Avatar from '../assets/utils/Avatar'
 import History from './History'
+import Modal from '../assets/utils/Modal'
+import BuyCoins from './BuyCoins'
 
 const Sidebar = () => {
-	const { user, history } = useContext(AppContext)
+	const {
+		user,
+		history,
+		showBuyModal,
+		setShowBuyModal,
+		waitingRequest
+	} = useContext(AppContext)
+
+	const handleClick = () => {
+		setShowBuyModal(true)
+	}
+
 	return (
 		<div className="sidebar">
 			<Avatar
@@ -21,14 +34,23 @@ const Sidebar = () => {
 						<img src={require('../assets/images/coin.svg')} alt="" />
 						<p>{user.points}</p>
 					</div>
-					<button>Buy More</button>
+					<button onClick={handleClick}>Buy More</button>
 				</>
 			)}
 			{history && (
 				<>
-				<History history={history}/>
+					<History history={history} />
 				</>
-				
+			)}
+
+			{showBuyModal && (
+				<Modal
+					show={showBuyModal}
+					setShow={setShowBuyModal}
+					loading={waitingRequest}
+				>
+					<BuyCoins />
+				</Modal>
 			)}
 
 			<div></div>

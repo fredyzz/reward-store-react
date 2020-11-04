@@ -1,46 +1,46 @@
 import React, { useContext, useState } from 'react'
 import Loader from '../assets/utils/Loader'
 import { AppContext } from '../context/AppContext'
-import { redeemProduct } from '../data/products'
-import { getUser, getUserHistory } from '../data/user'
+import { addPoints } from '../data/user'
+import { STEP, MIN_COINS, MAX_COINS } from '../data/config'
 
-const ConfirmSwap = () => {
-	const {
-		setShowModal,
-		selectedProduct,
-		setSelectedProduct,
-		setWaitingRequest,
-		user,
-		setUser,
-		setHistory
-	} = useContext(AppContext)
+const BuyCoins = () => {
+	const { setShowBuyModal, user, setUser, setWaitingRequest } = useContext(
+		AppContext
+	)
 
 	const [loading, setLoading] = useState(false)
 	const [badRequest, setBadRequest] = useState(false)
 	const [message, setMessage] = useState(null)
+	const [coinsToBuy, setCoinsToBuy] = useState(MIN_COINS)
+
+	const addCoins = () => {
+		if (coinsToBuy + STEP <= MAX_COINS) {
+			setCoinsToBuy(coinsToBuy + STEP)
+		}
+	}
+
+	const deleteCoins = () => {
+		if (coinsToBuy - STEP >= MIN_COINS) {
+			setCoinsToBuy(coinsToBuy - STEP)
+		}
+	}
 
 	const handleCancel = () => {
 		setBadRequest(false)
 		setMessage(null)
-		setSelectedProduct(null)
-		setShowModal(false)
+		setShowBuyModal(false)
 	}
 
 	const handleConfirm = async () => {
-		if (user.points >= selectedProduct.cost) {
+		if (coinsToBuy >= MIN_COINS) {
 			setLoading(true)
 			setWaitingRequest(true)
-			const response = await redeemProduct(selectedProduct._id)
-			setMessage(response.message)
-			setSelectedProduct(null)
-			setLoading(false)
+			let res = await addPoints(coinsToBuy)
+			setMessage(res.message)
+			setUser({ ...user, points: res['New Points'] })
 			setWaitingRequest(false)
-			const updatedUser = await getUser()
-			setUser(updatedUser)
-			const historyData = await getUserHistory()
-			setHistory(
-				historyData.slice(historyData.length - 8, historyData.length).reverse()
-			)
+			setLoading(false)
 		} else {
 			setBadRequest(true)
 			setMessage("You don't have enough coins to redeem this product")
@@ -72,28 +72,57 @@ const ConfirmSwap = () => {
 				</>
 			) : (
 				<>
-					<h3>Redemption confirmation</h3>
-					<img src={selectedProduct.img.url} alt="" />
-					<h4>{selectedProduct.name}</h4>
+					<h3>Buy coins</h3>
+					<img
+						src={require('../assets/images/coin.svg')}
+						alt=""
+						className="coin_big"
+					/>
+
 					<span>
 						<img
 							src={require('../assets/images/coin.svg')}
 							alt=""
 							className="coin"
 						/>
-						{selectedProduct.cost}
+						1000 x 1 U$D
 					</span>
 					{loading ? (
 						<Loader />
 					) : (
-						<div className={'flex-column'}>
+						<>
+							<div className="coinsSelector">
+								<button
+									className={coinsToBuy > MIN_COINS ? 'left' : 'left disabled'}
+									onClick={deleteCoins}
+								>
+									-
+								</button>
+								<div className="number">
+									<span>{coinsToBuy}</span>
+
+									<img
+										src={require('../assets/images/coin.svg')}
+										alt=""
+										className="coin"
+									/>
+								</div>
+								<button
+									className={
+										coinsToBuy < MAX_COINS ? 'right' : 'right disabled'
+									}
+									onClick={addCoins}
+								>
+									+
+								</button>
+							</div>
 							<button className="success" onClick={handleConfirm}>
 								Confirm
 							</button>
 							<button className="cancel" onClick={handleCancel}>
 								Cancel
 							</button>
-						</div>
+						</>
 					)}
 				</>
 			)}
@@ -101,4 +130,4 @@ const ConfirmSwap = () => {
 	)
 }
 
-export default ConfirmSwap
+export default BuyCoins

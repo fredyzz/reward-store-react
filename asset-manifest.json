@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/reward-store-react/static/css/main.63c6be6f.chunk.css",
+    "main.js": "/reward-store-react/static/js/main.935e00d5.chunk.js",
+    "main.js.map": "/reward-store-react/static/js/main.935e00d5.chunk.js.map",
+    "runtime-main.js": "/reward-store-react/static/js/runtime-main.2fc1149e.js",
+    "runtime-main.js.map": "/reward-store-react/static/js/runtime-main.2fc1149e.js.map",
+    "static/js/2.6e3b63a5.chunk.js": "/reward-store-react/static/js/2.6e3b63a5.chunk.js",
+    "static/js/2.6e3b63a5.chunk.js.map": "/reward-store-react/static/js/2.6e3b63a5.chunk.js.map",
+    "index.html": "/reward-store-react/index.html",
+    "precache-manifest.1a020520993a4621ce07547c75986c51.js": "/reward-store-react/precache-manifest.1a020520993a4621ce07547c75986c51.js",
+    "service-worker.js": "/reward-store-react/service-worker.js",
+    "static/css/main.63c6be6f.chunk.css.map": "/reward-store-react/static/css/main.63c6be6f.chunk.css.map",
+    "static/js/2.6e3b63a5.chunk.js.LICENSE.txt": "/reward-store-react/static/js/2.6e3b63a5.chunk.js.LICENSE.txt",
+    "static/media/cart2.svg": "/reward-store-react/static/media/cart2.655b0580.svg",
+    "static/media/coin.svg": "/reward-store-react/static/media/coin.6175aed5.svg",
+    "static/media/header-x1.png": "/reward-store-react/static/media/header-x1.f0b98264.png",
+    "static/media/left-arrow.svg": "/reward-store-react/static/media/left-arrow.05714a03.svg",
+    "static/media/logo.svg": "/reward-store-react/static/media/logo.8caf7001.svg",
+    "static/media/right-arrow.svg": "/reward-store-react/static/media/right-arrow.8b99ffd0.svg",
+    "static/media/success.gif": "/reward-store-react/static/media/success.ad56fb62.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2fc1149e.js",
+    "static/js/2.6e3b63a5.chunk.js",
+    "static/css/main.63c6be6f.chunk.css",
+    "static/js/main.935e00d5.chunk.js"
+  ]
+}
